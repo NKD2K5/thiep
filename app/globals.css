@@ -1,0 +1,335 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.01 45);
+  --foreground: oklch(0.15 0.02 30);
+  --card: oklch(0.99 0.005 45);
+  --card-foreground: oklch(0.15 0.02 30);
+  --popover: oklch(0.99 0.005 45);
+  --popover-foreground: oklch(0.15 0.02 30);
+  --primary: oklch(0.72 0.12 45); /* #E9967A converted to oklch */
+  --primary-foreground: oklch(0.98 0.01 45);
+  --secondary: oklch(0.95 0.02 45);
+  --secondary-foreground: oklch(0.25 0.03 30);
+  --muted: oklch(0.96 0.015 45);
+  --muted-foreground: oklch(0.55 0.02 30);
+  --accent: oklch(0.75 0.1 35); /* Complementary warm accent */
+  --accent-foreground: oklch(0.15 0.02 30);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0.02 45);
+  --input: oklch(0.92 0.02 45);
+  --ring: oklch(0.72 0.12 45);
+  --chart-1: oklch(0.72 0.12 45);
+  --chart-2: oklch(0.75 0.1 35);
+  --chart-3: oklch(0.68 0.08 55);
+  --chart-4: oklch(0.7 0.09 25);
+  --chart-5: oklch(0.74 0.11 40);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.98 0.01 45);
+  --sidebar-foreground: oklch(0.15 0.02 30);
+  --sidebar-primary: oklch(0.72 0.12 45);
+  --sidebar-primary-foreground: oklch(0.98 0.01 45);
+  --sidebar-accent: oklch(0.95 0.02 45);
+  --sidebar-accent-foreground: oklch(0.25 0.03 30);
+  --sidebar-border: oklch(0.92 0.02 45);
+  --sidebar-ring: oklch(0.72 0.12 45);
+}
+
+.dark {
+  --background: oklch(0.12 0.02 30);
+  --foreground: oklch(0.95 0.01 45);
+  --card: oklch(0.14 0.02 30);
+  --card-foreground: oklch(0.95 0.01 45);
+  --popover: oklch(0.14 0.02 30);
+  --popover-foreground: oklch(0.95 0.01 45);
+  --primary: oklch(0.75 0.12 45); /* Slightly brighter for dark mode */
+  --primary-foreground: oklch(0.12 0.02 30);
+  --secondary: oklch(0.22 0.03 30);
+  --secondary-foreground: oklch(0.95 0.01 45);
+  --muted: oklch(0.2 0.03 30);
+  --muted-foreground: oklch(0.65 0.02 35);
+  --accent: oklch(0.78 0.1 35);
+  --accent-foreground: oklch(0.12 0.02 30);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.25 0.03 30);
+  --input: oklch(0.25 0.03 30);
+  --ring: oklch(0.75 0.12 45);
+  --chart-1: oklch(0.75 0.12 45);
+  --chart-2: oklch(0.78 0.1 35);
+  --chart-3: oklch(0.71 0.08 55);
+  --chart-4: oklch(0.73 0.09 25);
+  --chart-5: oklch(0.77 0.11 40);
+  --sidebar: oklch(0.18 0.02 30);
+  --sidebar-foreground: oklch(0.95 0.01 45);
+  --sidebar-primary: oklch(0.75 0.12 45);
+  --sidebar-primary-foreground: oklch(0.12 0.02 30);
+  --sidebar-accent: oklch(0.22 0.03 30);
+  --sidebar-accent-foreground: oklch(0.95 0.01 45);
+  --sidebar-border: oklch(0.25 0.03 30);
+  --sidebar-ring: oklch(0.75 0.12 45);
+}
+
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Elegant Wedding Color Palette */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Custom animations */
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes elegantSparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gracefulDove {
+  0% {
+    transform: translateX(-100px) translateY(20px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@keyframes envelopeOpen {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes cardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fallingPetals {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalSway {
+  0%,
+  100% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes shimmerGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floralBreathe {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes heartPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes ribbonWave {
+  0%,
+  100% {
+    transform: translateY(0px) scaleY(1);
+  }
+  50% {
+    transform: translateY(-5px) scaleY(1.1);
+  }
+}
+
+@keyframes goldenShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.float-gentle {
+  animation: gentleFloat 6s ease-in-out infinite;
+}
+
+.sparkle-elegant {
+  animation: elegantSparkle 3s ease-in-out infinite;
+}
+
+.dove-graceful {
+  animation: gracefulDove 12s linear infinite;
+}
+
+.petal-falling {
+  animation: fallingPetals 8s linear infinite, petalSway 3s ease-in-out infinite;
+}
+
+.petal-falling-slow {
+  animation: fallingPetals 12s linear infinite, petalSway 4s ease-in-out infinite;
+}
+
+.petal-falling-fast {
+  animation: fallingPetals 6s linear infinite, petalSway 2s ease-in-out infinite;
+}
+
+.envelope-opening {
+  animation: envelopeOpen 1.2s ease-out forwards;
+}
+
+.card-revealing {
+  animation: cardReveal 1s ease-out 0.8s both;
+}
+
+.shimmer-glow {
+  animation: shimmerGlow 4s ease-in-out infinite;
+}
+
+.floral-breathe {
+  animation: floralBreathe 5s ease-in-out infinite;
+}
+
+.heart-pulse {
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+.ribbon-wave {
+  animation: ribbonWave 3s ease-in-out infinite;
+}
+
+.golden-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: goldenShimmer 3s ease-in-out infinite;
+}
+
+/* Typography improvements */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-elegant {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
