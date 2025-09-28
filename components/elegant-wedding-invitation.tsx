@@ -591,7 +591,7 @@ export default function ElegantWeddingInvitation() {
                 <div className="space-y-3 sm:space-y-4 text-foreground">
                   <div className="bg-muted/50 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
                     <div className="font-elegant text-xs text-muted-foreground mb-1 tracking-wide">THỜI GIAN</div>
-                    <div className="font-display text-base sm:text-lg">8:00 • Chủ nhật, 07 tháng 10, 2025</div>
+                    <div className="font-display text-base sm:text-lg">8:00 • Thứ 3, 07 tháng 10, 2025</div>
                   </div>
 
                   <div className="bg-muted/50 rounded-xl p-3 sm:p-4 backdrop-blur-sm">
